@@ -339,11 +339,13 @@ body {
 .hero-visual {
     position: relative;
     margin-top: var(--spacing-xl);
-    height: 300px;
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
 }
 
 .stats-card {
-    position: absolute;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -361,21 +363,14 @@ body {
 }
 
 .card-1 {
-    top: 0;
-    left: 10%;
     animation: floatCard 6s ease-in-out infinite;
 }
 
 .card-2 {
-    top: 50%;
-    right: 10%;
     animation: floatCard 6s ease-in-out infinite 2s;
 }
 
 .card-3 {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
     animation: floatCard 6s ease-in-out infinite 4s;
 }
 
@@ -773,7 +768,7 @@ select.form-input {
     }
 
     .hero-visual {
-        height: 250px;
+        margin-top: var(--spacing-lg);
     }
 
     .stats-card {
