@@ -8,6 +8,7 @@ import { writeFileSync } from 'fs';
 import dotenv from 'dotenv';
 import { Client as HubSpotClient } from '@hubspot/api-client';
 import SibApiV3Sdk from '@getbrevo/brevo';
+import { createClient } from '@supabase/supabase-js';
 
 // Load environment variables
 dotenv.config();
@@ -65,6 +66,15 @@ if (process.env.BREVO_API_KEY) {
     console.log('✅ Brevo client initialized');
 } else {
     console.log('⚠️  Brevo not configured (missing BREVO_API_KEY)');
+}
+
+// Supabase Client
+let supabase = null;
+if (process.env.SUPABASE_URL && process.env.SUPABASE_KEY) {
+    supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+    console.log('✅ Supabase client initialized');
+} else {
+    console.log('⚠️  Supabase not configured (missing SUPABASE_URL or SUPABASE_KEY)');
 }
 
 // ===== HELPERS =====
@@ -313,6 +323,27 @@ app.post('/api/leads', async (req, res) => {
 
         // Send to external integrations (non-blocking)
         // We don't await these - they run in background and don't block the response
+        if (supabase) {
+            supabase
+                .from('leads')
+                .insert([
+                    {
+                        name: newLead.name,
+                        email: newLead.email,
+                        phone: newLead.phone,
+                        company: newLead.company,
+                        budget: newLead.budget,
+                        message: newLead.message,
+                        ip_address: newLead.ipAddress, // snake_case for DB
+                        user_agent: newLead.userAgent
+                    }
+                ])
+                .then(({ error }) => {
+                    if (error) console.error('❌ Supabase error:', error.message);
+                    else console.log('✅ Supabase: Lead saved');
+                });
+        }
+
         sendToHubSpot(newLead).catch(err => console.error('HubSpot background error:', err));
         sendToBrevo(newLead).catch(err => console.error('Brevo background error:', err));
 
@@ -490,7 +521,7 @@ app.listen(PORT, () => {
 ╟────────────────────────────────────────╢
 ║   Port: ${PORT}                         ║
 ║   URL:  http://localhost:${PORT}        ║
-║   DB:   JSON (leads.json)             ║
+║   DB:   JSON + Supabase (optional)      ║
 ╚════════════════════════════════════════╝
   `);
 });
