@@ -805,7 +805,29 @@ select.form-input {
     }
 
     .hero-visual {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+        height: auto;
+        margin-top: var(--spacing-lg);
+    }
+
+    .stats-card {
+        position: static;
+        width: 100%;
+        max-width: 320px;
+        transform: none !important;
+        animation: none;
+    }
+
+    .card-1,
+    .card-2,
+    .card-3 {
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
     }
 
     .services-grid {
