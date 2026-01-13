@@ -1,0 +1,35 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage
+.nyc_output
+
+# Production
+build/
+dist/
+
+# Misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Vercel
+.vercel
+
+# Local Data (optional: keep if you want to track empty files, but ignore content if it changes)
+# For now, we ignore the actual data files but maybe keep the structure if needed.
+# Since the user has data locally they might want to keep, let's just be careful.
+# Usually we ignore the actual db files.
+data/leads.json
+data/leads.csv

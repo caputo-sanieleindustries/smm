@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grazie - SocialBoost</title>
+    <meta name="description" content="Grazie per aver richiesto una consulenza gratuita. Ti contatteremo a breve!">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <span class="logo-icon">🚀</span>
+                    <span class="logo-text">SocialBoost</span>
+                </div>
+                <a href="index.html" class="cta-button-small">Torna alla Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Thank You Section -->
+    <section class="thankyou-section">
+        <div class="container">
+            <div class="thankyou-content">
+                <div class="success-animation">
+                    <div class="checkmark-circle">
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="checkmark-circle-path" cx="26" cy="26" r="25" fill="none" />
+                            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                        </svg>
+                    </div>
+                </div>
+
+                <h1 class="thankyou-title">
+                    Ciao <span class="gradient-text" id="userName">{{name}}</span>, grazie per esserti registrato!
+                </h1>
+
+                <p class="thankyou-message">
+                    Ti contatteremo al più presto al numero <strong id="userPhone">{{phone}}</strong>
+                    o all'email <strong id="userEmail">{{email}}</strong>.
+                </p>
+
+                <div class="thankyou-details">
+                    <div class="detail-card">
+                        <div class="detail-icon">⏱️</div>
+                        <h3>Risposta Rapida</h3>
+                        <p>Ti ricontatteremo entro 24 ore lavorative</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">📊</div>
+                        <h3>Analisi Gratuita</h3>
+                        <p>Riceverai un'analisi dettagliata dei tuoi social</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-icon">🎯</div>
+                        <h3>Strategia Personalizzata</h3>
+                        <p>Creeremo un piano su misura per te</p>
+                    </div>
+                </div>
+
+                <div class="thankyou-cta">
+                    <h2 class="next-steps-title">Nel Frattempo...</h2>
+                    <p class="next-steps-subtitle">Scopri di più su come possiamo aiutarti</p>
+                    <div class="cta-buttons">
+                        <a href="index.html#services" class="cta-button-primary">
+                            Scopri i Nostri Servizi
+                            <span class="arrow">→</span>
+                        </a>
+                        <a href="index.html" class="cta-button-secondary">
+                            Torna alla Home
+                        </a>
+                    </div>
+                </div>
+
+                <div class="social-proof">
+                    <p class="social-proof-text">✨ Ti unirai a oltre <strong>500+ clienti soddisfatti</strong> che hanno
+                        trasformato i loro social media</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <span class="logo-icon">🚀</span>
+                        <span class="logo-text">SocialBoost</span>
+                    </div>
+                    <p class="footer-description">La tua agenzia di Social Media Marketing per crescere online</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Contatti</h4>
+                        <ul>
+                            <li>📧 info@socialboost.it</li>
+                            <li>📱 +39 02 1234 5678</li>
+                            <li>📍 Milano, Italia</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 SocialBoost. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/thankyou.js"></script>
+</body>
+
+</html>
